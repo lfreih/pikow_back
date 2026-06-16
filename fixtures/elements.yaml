@@ -1,0 +1,21 @@
+App\Entity\Element:
+    mot_famille_{1..20}:
+        type: 'mot'
+        theme: 'famille'
+        value: '<word()>'
+        ageMin: 6
+        ageMax: 99
+
+    mot_business_{1..20}:
+        type: 'mot'
+        theme: 'business'
+        value: '<word()>'
+        ageMin: 16
+        ageMax: 99
+
+    mot_spicy_{1..20}:
+        type: 'mot'
+        theme: 'spicy'
+        value: '<word()>'
+        ageMin: 18
+        ageMax: 99

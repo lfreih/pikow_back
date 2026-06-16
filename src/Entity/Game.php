@@ -1,0 +1,141 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\GameRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Uid\Uuid;
+
+#[ORM\Entity(repositoryClass: GameRepository::class)]
+class Game
+{
+    #[ORM\Id]
+    #[ORM\Column(type: 'uuid', unique: true)]
+    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    private ?Uuid $id = null;
+
+    #[ORM\Column]
+    private ?\DateTime $date = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $theme = null;
+
+    #[ORM\Column]
+    private ?int $nbPlayers = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $status = null;
+
+    #[ORM\ManyToOne(inversedBy: 'games')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    /**
+     * @var Collection<int, Pitch>
+     */
+    #[ORM\OneToMany(targetEntity: Pitch::class, mappedBy: 'game')]
+    private Collection $pitches;
+
+    public function __construct()
+    {
+        $this->pitches = new ArrayCollection();
+    }
+
+    public function getId(): ?Uuid
+    {
+        return $this->id;
+    }
+
+    public function getDate(): ?\DateTime
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTime $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getTheme(): ?string
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(string $theme): static
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    public function getNbPlayers(): ?int
+    {
+        return $this->nbPlayers;
+    }
+
+    public function setNbPlayers(int $nbPlayers): static
+    {
+        $this->nbPlayers = $nbPlayers;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Pitch>
+     */
+    public function getPitches(): Collection
+    {
+        return $this->pitches;
+    }
+
+    public function addPitch(Pitch $pitch): static
+    {
+        if (!$this->pitches->contains($pitch)) {
+            $this->pitches->add($pitch);
+            $pitch->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removePitch(Pitch $pitch): static
+    {
+        if ($this->pitches->removeElement($pitch)) {
+            // set the owning side to null (unless already changed)
+            if ($pitch->getGame() === $this) {
+                $pitch->setGame(null);
+            }
+        }
+
+        return $this;
+    }
+}
