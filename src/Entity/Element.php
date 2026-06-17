@@ -25,7 +25,7 @@ class Element
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['element:read'])]
+    #[Groups(['element:read', 'pitch:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
@@ -33,7 +33,7 @@ class Element
     private ?string $type = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['element:read'])]
+    #[Groups(['element:read', 'pitch:read'])]
     private ?string $value = null;
 
     #[ORM\Column(length: 100)]

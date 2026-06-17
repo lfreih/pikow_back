@@ -4,6 +4,12 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Get;
+use App\State\GamePitchesProvider;
+use App\State\GameUpdateProcessor;
+use App\State\GameCollectionProvider;
 use App\Repository\GameRepository;
 use App\State\GameCreateProcessor;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,6 +25,25 @@ use Symfony\Component\Uid\Uuid;
             processor: GameCreateProcessor::class,
             normalizationContext: ['groups' => ['game:read']],
             denormalizationContext: ['groups' => ['game:create']]
+        ),
+        new GetCollection(
+            uriTemplate: '/games',
+            provider: GameCollectionProvider::class,
+            normalizationContext: ['groups' => ['game:read']],
+            paginationEnabled: false
+        ),
+        new Patch(
+            uriTemplate: '/games/{id}',
+            processor: GameUpdateProcessor::class,
+            normalizationContext: ['groups' => ['game:read']],
+            denormalizationContext: ['groups' => ['game:update']]
+        ),
+        new Get(
+            uriTemplate: '/games/{id}/pitches',
+            provider: GamePitchesProvider::class,
+            normalizationContext: ['groups' => ['pitch:read']],
+            output: Pitch::class,
+            paginationEnabled: false
         )
     ]
 )]
@@ -45,7 +70,7 @@ class Game
     private ?int $nbPlayers = null;
 
     #[ORM\Column(length: 50)]
-    #[Groups(['game:read'])]
+    #[Groups(['game:read', 'game:update'])]
     private ?string $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'games')]

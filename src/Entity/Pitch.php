@@ -56,10 +56,12 @@ class Pitch
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['pitch:read'])]
     private ?Element $word1 = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['pitch:read'])]
     private ?Element $word2 = null;
 
     #[Groups(['pitch:create'])]

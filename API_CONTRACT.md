@@ -111,7 +111,7 @@ Créer une nouvelle partie.
   "id": "018f4e2a-7b3c-7000-8e2a-1234567890ab",
   "theme": "famille",
   "nbPlayers": 4,
-  "status": "en_cours",
+  "status": "in_progress",
   "date": "2026-06-16T20:00:00+00:00"
 }
 ```
@@ -131,7 +131,7 @@ Historique des parties de l'utilisateur connecté.
     "id": "018f4e2a-7b3c-7000-8e2a-1234567890ab",
     "theme": "famille",
     "nbPlayers": 4,
-    "status": "terminée",
+    "status": "finished",
     "date": "2026-06-16T20:00:00+00:00",
     "pitchCount": 4
   }
@@ -149,7 +149,7 @@ Authorization: Bearer {token}
 **Body**
 ```json
 {
-  "status": "terminée"
+  "status": "finished"
 }
 ```
 
@@ -157,7 +157,7 @@ Authorization: Bearer {token}
 ```json
 {
   "id": "018f4e2a-7b3c-7000-8e2a-1234567890ab",
-  "status": "terminée"
+  "status": "finished"
 }
 ```
 
