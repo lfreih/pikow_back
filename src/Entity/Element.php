@@ -2,24 +2,42 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
 use App\Repository\ElementRepository;
+use App\State\ElementRandomProvider;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 
+#[ApiResource(
+    operations: [
+        new GetCollection(
+            uriTemplate: '/elements/random',
+            provider: ElementRandomProvider::class,
+            normalizationContext: ['groups' => ['element:read']],
+            paginationEnabled: false
+        )
+    ]
+)]
 #[ORM\Entity(repositoryClass: ElementRepository::class)]
 class Element
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['element:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['element:read'])]
     private ?string $type = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['element:read'])]
     private ?string $value = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['element:read'])]
     private ?string $theme = null;
 
     #[ORM\Column]
