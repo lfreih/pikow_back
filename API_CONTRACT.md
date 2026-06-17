@@ -4,6 +4,34 @@ Base URL : `http://symfony.mmi-troyes.fr:8319/api`
 
 ## Authentification
 
+### POST /register
+Créer un compte utilisateur.
+
+**Body**
+```json
+{
+  "email": "user@example.com",
+  "password": "motdepasse"
+}
+```
+
+**Réponse 201**
+```json
+{
+  "id": "018f4e2a-7b3c-7000-8e2a-1234567890ab",
+  "email": "user@example.com"
+}
+```
+
+**Réponse 422**
+```json
+{
+  "violations": [
+    { "propertyPath": "email", "message": "L'email n'est pas valide." }
+  ]
+}
+```
+
 ### POST /login
 Connexion et récupération du token JWT.
 
@@ -73,13 +101,7 @@ Créer une nouvelle partie.
 ```json
 {
   "theme": "famille",
-  "nbPlayers": 4,
-  "players": [
-    { "name": "Alice", "age": 10 },
-    { "name": "Bob", "age": 12 },
-    { "name": "Léa", "age": 8 },
-    { "name": "Max", "age": 14 }
-  ]
+  "nbPlayers": 4
 }
 ```
 

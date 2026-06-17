@@ -2,10 +2,24 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Post;
 use App\Repository\PitchRepository;
+use App\State\PitchCreateProcessor;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Uuid;
 
+#[ApiResource(
+    operations: [
+        new Post(
+            uriTemplate: '/pitches',
+            processor: PitchCreateProcessor::class,
+            normalizationContext: ['groups' => ['pitch:read']],
+            denormalizationContext: ['groups' => ['pitch:create']]
+        )
+    ]
+)]
 #[ORM\Entity(repositoryClass: PitchRepository::class)]
 class Pitch
 {
@@ -13,21 +27,27 @@ class Pitch
     #[ORM\Column(type: 'uuid', unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    #[Groups(['pitch:read'])]
     private ?Uuid $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['pitch:create', 'pitch:read'])]
     private ?string $playerName = null;
 
     #[ORM\Column]
+    #[Groups(['pitch:create'])]
     private ?int $playerAge = null;
 
     #[ORM\Column]
+    #[Groups(['pitch:create', 'pitch:read'])]
     private ?int $turnNumber = null;
 
     #[ORM\Column]
+    #[Groups(['pitch:create', 'pitch:read'])]
     private ?int $duration = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['pitch:create', 'pitch:read'])]
     private ?int $score = null;
 
     #[ORM\ManyToOne(inversedBy: 'pitches')]
@@ -41,6 +61,15 @@ class Pitch
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Element $word2 = null;
+
+    #[Groups(['pitch:create'])]
+    private ?string $gameId = null;
+
+    #[Groups(['pitch:create'])]
+    private ?int $word1Id = null;
+
+    #[Groups(['pitch:create'])]
+    private ?int $word2Id = null;
 
     public function getId(): ?Uuid
     {
@@ -139,6 +168,42 @@ class Pitch
     public function setWord2(?Element $word2): static
     {
         $this->word2 = $word2;
+
+        return $this;
+    }
+
+    public function getGameId(): ?string
+    {
+        return $this->gameId;
+    }
+
+    public function setGameId(?string $gameId): static
+    {
+        $this->gameId = $gameId;
+
+        return $this;
+    }
+
+    public function getWord1Id(): ?int
+    {
+        return $this->word1Id;
+    }
+
+    public function setWord1Id(?int $word1Id): static
+    {
+        $this->word1Id = $word1Id;
+
+        return $this;
+    }
+
+    public function getWord2Id(): ?int
+    {
+        return $this->word2Id;
+    }
+
+    public function setWord2Id(?int $word2Id): static
+    {
+        $this->word2Id = $word2Id;
 
         return $this;
     }

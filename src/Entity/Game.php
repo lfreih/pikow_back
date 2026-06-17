@@ -2,12 +2,26 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Post;
 use App\Repository\GameRepository;
+use App\State\GameCreateProcessor;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Uid\Uuid;
 
+#[ApiResource(
+    operations: [
+        new Post(
+            uriTemplate: '/games',
+            processor: GameCreateProcessor::class,
+            normalizationContext: ['groups' => ['game:read']],
+            denormalizationContext: ['groups' => ['game:create']]
+        )
+    ]
+)]
 #[ORM\Entity(repositoryClass: GameRepository::class)]
 class Game
 {
@@ -15,18 +29,23 @@ class Game
     #[ORM\Column(type: 'uuid', unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    #[Groups(['game:read'])]
     private ?Uuid $id = null;
 
     #[ORM\Column]
+    #[Groups(['game:read'])]
     private ?\DateTime $date = null;
 
     #[ORM\Column(length: 100)]
+    #[Groups(['game:create', 'game:read'])]
     private ?string $theme = null;
 
     #[ORM\Column]
+    #[Groups(['game:create', 'game:read'])]
     private ?int $nbPlayers = null;
 
     #[ORM\Column(length: 50)]
+    #[Groups(['game:read'])]
     private ?string $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'games')]
