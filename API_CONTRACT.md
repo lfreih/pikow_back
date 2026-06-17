@@ -132,8 +132,7 @@ Historique des parties de l'utilisateur connecté.
     "theme": "famille",
     "nbPlayers": 4,
     "status": "finished",
-    "date": "2026-06-16T20:00:00+00:00",
-    "pitchCount": 4
+    "date": "2026-06-16T20:00:00+00:00"
   }
 ]
 ```
@@ -143,8 +142,9 @@ Historique des parties de l'utilisateur connecté.
 ### PATCH /games/{id}
 Terminer une partie.
 
-**Headers**
-Authorization: Bearer {token}
+**Headers**  
+`Authorization: Bearer {token}`  
+`Content-Type: application/merge-patch+json`
 
 **Body**
 ```json
@@ -218,6 +218,32 @@ Récupérer tous les pitchs d'une partie.
     "word2": { "id": 34, "value": "Aspirateur" }
   }
 ]
+```
+
+## Contact
+
+### POST /contact
+Envoyer un formulaire de contact ou une demande revendeur.   
+**Public, pas de token requis.**
+
+**Body**
+```json
+{
+  "type": "contact",
+  "email": "test@example.com",
+  "message": "Bonjour, je souhaite des informations.",
+  "company": null
+}
+```
+
+**type** : `contact` | `revendeur`
+**company** : obligatoire si `type = revendeur`, nullable sinon
+
+**Réponse 201**
+```json
+{
+  "id": 1
+}
 ```
 
 ---
