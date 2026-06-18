@@ -11,6 +11,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Get;
+use App\State\MeProvider;
 use App\State\UserRegisterProcessor;
 use Symfony\Component\Serializer\Attribute\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -22,6 +24,12 @@ use Symfony\Component\Validator\Constraints as Assert;
             processor: UserRegisterProcessor::class,
             normalizationContext: ['groups' => ['user:read']],
             denormalizationContext: ['groups' => ['user:create']]
+        ),
+        new Get(
+            uriTemplate: '/me',
+            provider: MeProvider::class,
+            normalizationContext: ['groups' => ['user:read']],
+            security: "is_granted('ROLE_USER')"
         )
     ]
 )]
