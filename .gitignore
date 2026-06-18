@@ -8,3 +8,22 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+# Fichiers système et d'éditeurs
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local logs
+/symfony_access.log
+/symfony_error.log
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.cache
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###

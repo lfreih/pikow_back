@@ -1,0 +1,373 @@
+App\Entity\Element:
+    mot_famille_1:
+        type: 'mot'
+        value: 'table'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_2:
+        type: 'mot'
+        value: 'lit'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_3:
+        type: 'mot'
+        value: 'coussin'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_4:
+        type: 'mot'
+        value: 'sushi'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_5:
+        type: 'mot'
+        value: 'chocolat'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_6:
+        type: 'mot'
+        value: 'ballon'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_7:
+        type: 'mot'
+        value: 'raquette'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_8:
+        type: 'mot'
+        value: 'velo'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_9:
+        type: 'mot'
+        value: 'livre'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_10:
+        type: 'mot'
+        value: 'cahier'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_11:
+        type: 'mot'
+        value: 'calculatrice'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_12:
+        type: 'mot'
+        value: 'chat'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_13:
+        type: 'mot'
+        value: 'girafe'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_14:
+        type: 'mot'
+        value: 'panda'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_15:
+        type: 'mot'
+        value: 'arbre'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_16:
+        type: 'mot'
+        value: 'montagne'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_17:
+        type: 'mot'
+        value: 'soleil'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_18:
+        type: 'mot'
+        value: 'voiture'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_19:
+        type: 'mot'
+        value: 'train'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_20:
+        type: 'mot'
+        value: 'fusee'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_21:
+        type: 'mot'
+        value: 'telephone'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_22:
+        type: 'mot'
+        value: 'ordinateur'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_23:
+        type: 'mot'
+        value: 'robot'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_24:
+        type: 'mot'
+        value: 'puzzle'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_25:
+        type: 'mot'
+        value: 'guitare'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_famille_26:
+        type: 'mot'
+        value: 'cinema'
+        theme: 'famille'
+        ageMin: 7
+        ageMax: 77
+    mot_business_1:
+        type: 'mot'
+        value: 'open space'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_2:
+        type: 'mot'
+        value: 'brainstorming'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_3:
+        type: 'mot'
+        value: 'agenda'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_4:
+        type: 'mot'
+        value: 'bureau'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_5:
+        type: 'mot'
+        value: 'clavier'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_6:
+        type: 'mot'
+        value: 'webcam'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_7:
+        type: 'mot'
+        value: 'startup'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_8:
+        type: 'mot'
+        value: 'client'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_9:
+        type: 'mot'
+        value: 'manager'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_10:
+        type: 'mot'
+        value: 'intelligence artificielle'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_11:
+        type: 'mot'
+        value: 'crm'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_12:
+        type: 'mot'
+        value: 'cloud'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_13:
+        type: 'mot'
+        value: 'email'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_14:
+        type: 'mot'
+        value: 'newsletter'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_15:
+        type: 'mot'
+        value: 'linkedIn'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_16:
+        type: 'mot'
+        value: 'investisseur'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_17:
+        type: 'mot'
+        value: 'business plan'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_business_18:
+        type: 'mot'
+        value: 'ceo'
+        theme: 'business'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_1:
+        type: 'mot'
+        value: 'premier rendez-vous'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_2:
+        type: 'mot'
+        value: 'belle-mere'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_3:
+        type: 'mot'
+        value: 'mariage'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_4:
+        type: 'mot'
+        value: 'preservatif'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_5:
+        type: 'mot'
+        value: 'mojito'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_6:
+        type: 'mot'
+        value: 'boite de nuit'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_7:
+        type: 'mot'
+        value: 'jacuzzi'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_8:
+        type: 'mot'
+        value: 'hotel'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_9:
+        type: 'mot'
+        value: 'croisiere'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_10:
+        type: 'mot'
+        value: 'tatouage'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_11:
+        type: 'mot'
+        value: 'talons'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_12:
+        type: 'mot'
+        value: 'parfum'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_13:
+        type: 'mot'
+        value: 'pizza froide'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_14:
+        type: 'mot'
+        value: 'chaussette'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_15:
+        type: 'mot'
+        value: 'batterie externe'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_16:
+        type: 'mot'
+        value: 'date tinder'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_17:
+        type: 'mot'
+        value: 'speed dating'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
+    mot_spicy_18:
+        type: 'mot'
+        value: 'evjf / evg'
+        theme: 'spicy'
+        ageMin: 18
+        ageMax: null
